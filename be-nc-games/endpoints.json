@@ -1,0 +1,112 @@
+{
+  "GET /api": {
+    "description": "serves up a json representation of all the available endpoints of the api"
+  },
+  "GET /api/categories": {
+    "description": "serves an array of all categories",
+    "queries": [],
+    "exampleResponse": {
+      "categories": [
+        {
+          "description": "Players attempt to uncover each other's hidden role",
+          "slug": "Social deduction"
+        }
+      ]
+    }
+  },
+  "GET /api/reviews": {
+    "description": "serves an array of all reviews",
+    "queries": ["category", "sort_by", "order"],
+    "exampleResponse": {
+      "reviews": [
+        {
+          "title": "One Night Ultimate Werewolf",
+          "designer": "Akihisa Okui",
+          "owner": "happyamy2016",
+          "review_img_url": "https://images.pexels.com/photos/5350049/pexels-photo-5350049.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+          "category": "hidden-roles",
+          "created_at": 1610964101251,
+          "votes": 5
+        }
+      ]
+    }
+  },
+  "GET /api/reviews/:review_id": {
+    "description": "serves a single array of objects based on the review_id key",
+    "queries": [],
+    "exampleResponse": {
+      "reviews": [
+        {
+        "review_id": 3,
+        "title": "Karma Karma Chameleon",
+        "review_body": "Try to trick your friends. If you find yourself being dealt the Chamelean card then the aim of the game is simple; blend in... Meanwhile the other players aim to be as vague as they can to not give the game away ",
+        "designer": "Rikki Tahta",
+        "review_img_url": "https://images.pexels.com/photos/5350049/pexels-photo-5350049.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "votes": 5,
+        "category": "hidden-roles",
+        "owner": "happyamy2016",
+        "created_at": "2021-01-18T10:01:42.151Z",
+        "comment_count": "5"
+        }
+        ]
+    }
+  },
+  "PATCH /api/reviews/:review_id": {
+    "description": "Allows an object to be passed in to change the entries in reviews",
+    "queries": [],
+    "exampleResponse": {
+      "reviews": [
+        {
+        "review_id": 8,
+        "title": "Scythe; you're gonna need a bigger table!",
+        "review_body": "Spend 30 minutes just setting up all of the boards (!) meeple and decks, just to forget how to play. Scythe can be a lengthy game but really packs a punch if you put the time in. With beautiful artwork, countless scenarios and clever game mechanics, this board game is a must for any board game fanatic; just make sure you explain ALL the rules before you start playing with first timers or you may find they bring it up again and again.",
+        "designer": "Jamey Stegmaier",
+        "review_img_url": "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg",
+        "votes": 100,
+        "category": "engine-building",
+        "owner": "grumpy19",
+        "created_at": "2021-01-22T10:37:04.839Z",
+        "comment_count": "1"
+        }
+        ]
+    }
+  },
+  "GET /api/reviews/:review_id/comments": {
+    "description": "serves a single array of comments based on the review_id",
+    "queries": [],
+    "exampleResponse": {
+      "comments": [
+        {
+        "comment_id": 19,
+        "author": "jessjelly",
+        "review_id": 3,
+        "votes": 3,
+        "created_at": "2021-03-27T19:48:58.110Z",
+        "body": "Quis duis mollit ad enim deserunt."
+        }
+        ]
+    }
+  },
+  "POST /api/reviews/:review_id/comments": {
+    "description": "Allows a user to post a new entry into the comments table",
+    "queries": [],
+    "exampleResponse": {
+      "comments": [
+        {
+        "comment_id": 19,
+        "author": "jessjelly",
+        "body": "asdkfjoa asdiofjasoidfjos odifjosdifjo isdiofhs oidfhj oosdifhj oisjdfoisdhfo"
+        }
+        ]
+    }
+  },
+  "DELETE /api/comments/:comment_id": {
+    "description": "Allows the user to delete an entry into the comments table based on the comment_id",
+    "queries": [],
+    "exampleResponse": {
+
+  }
+
+  
+}
+}
